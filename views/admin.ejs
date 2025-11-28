@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin — Pursuit7</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="admin-page">
+    <h2>Throne Room Dashboard</h2>
+
+    <section>
+      <h3>Add Player</h3>
+      <form method="POST" action="/admin/players">
+        <input name="name" placeholder="Name" required />
+        <input name="role" placeholder="Role" required />
+        <input name="imageUrl" placeholder="Image URL" />
+        <button type="submit">Crown Player</button>
+      </form>
+    </section>
+
+    <section>
+      <h3>Players</h3>
+      <% players.forEach(p => { %>
+        <form method="POST" action="/admin/players/<%= p._id %>">
+          <input name="name" value="<%= p.name %>" />
+          <input name="role" value="<%= p.role %>" />
+          <button type="submit">Update</button>
+          <a href="/admin/players/delete/<%= p._id %>" class="delete">Remove</a>
+        </form>
+      <% }) %>
+    </section>
+
+    <section>
+      <h3>Add Staff</h3>
+      <form method="POST" action="/admin/staff">
+        <input name="name" placeholder="Name" required />
+        <input name="role" placeholder="Role" required />
+        <input name="imageUrl" placeholder="Image URL" />
+        <button type="submit">Appoint</button>
+      </form>
+    </section>
+
+    <section>
+      <h3>Staff</h3>
+      <% staff.forEach(s => { %>
+        <form method="POST" action="/admin/staff/<%= s._id %>">
+          <input name="name" value="<%= s.name %>" />
+          <input name="role" value="<%= s.role %>" />
+          <button type="submit">Update</button>
+          <a href="/admin/staff/delete/<%= s._id %>" class="delete">Remove</a>
+        </form>
+      <% }) %>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
