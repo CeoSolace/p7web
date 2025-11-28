@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rosters — Pursuit7</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <main class="rosters-page">
+    <h2>Players</h2>
+    <div class="grid">
+      <% players.forEach(p => { %>
+        <div class="roster-card">
+          <img src="<%= p.imageUrl %>" alt="<%= p.name %>" />
+          <h3><%= p.name %></h3>
+          <p><%= p.role %></p>
+        </div>
+      <% }) %>
+    </div>
+
+    <h2>Staff</h2>
+    <div class="grid">
+      <% staff.forEach(s => { %>
+        <div class="roster-card">
+          <img src="<%= s.imageUrl %>" alt="<%= s.name %>" />
+          <h3><%= s.name %></h3>
+          <p><%= s.role %></p>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
