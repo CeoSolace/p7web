@@ -1,18 +1,15 @@
-<header class="navbar">
-  <div class="nav-brand">
-    <img src="/images/logo.png" alt="Pursuit7 Gaming" class="logo" />
+<!-- /views/partials/header.ejs -->
+<header>
+  <div class="container">
+    <div class="logo">
+      <img src="/logo.png" alt="Pursuit7 Gaming" height="42">
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/rosters">Rosters</a>
+      <a href="/contact">Contact</a>
+      <a href="/login">Admin</a>
+    </nav>
   </div>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/about">Legacy</a>
-    <a href="/merch">Gear</a>
-    <a href="/contact">Contact</a>
-    <a href="/rosters">Squad</a>
-    <a href="/socials">Connect</a>
-    <% if (isAuthenticated) { %>
-      <a href="/logout">Secure Exit</a>
-    <% } else { %>
-      <a href="/login">Command Access</a>
-    <% } %>
-  </nav>
 </header>
