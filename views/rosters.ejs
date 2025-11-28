@@ -1,37 +1,51 @@
+<!-- /views/rosters.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Rosters — Pursuit7</title>
-  <link rel="stylesheet" href="/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squad | Pursuit7 Gaming</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
 </head>
 <body>
   <%- include('partials/header') %>
 
-  <main class="rosters-page">
-    <h2>Players</h2>
-    <div class="grid">
-      <% players.forEach(p => { %>
-        <div class="roster-card">
-          <img src="<%= p.imageUrl %>" alt="<%= p.name %>" />
-          <h3><%= p.name %></h3>
-          <p><%= p.role %></p>
-        </div>
-      <% }) %>
+  <section class="rosters-section">
+    <h2>Squad</h2>
+    <div class="roster-grid">
+      <!-- Example player – replace with actual data in real app -->
+      <div class="member-card">
+        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Player">
+        <h4>Alex "Vanta" Reed</h4>
+        <p>IGL</p>
+      </div>
+      <div class="member-card">
+        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Player">
+        <h4>Marcus "Torch" Bell</h4>
+        <p>Fragger</p>
+      </div>
+      <div class="member-card">
+        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Player">
+        <h4>Jordan "Phantom" Lee</h4>
+        <p>Support</p>
+      </div>
     </div>
 
-    <h2>Staff</h2>
-    <div class="grid">
-      <% staff.forEach(s => { %>
-        <div class="roster-card">
-          <img src="<%= s.imageUrl %>" alt="<%= s.name %>" />
-          <h3><%= s.name %></h3>
-          <p><%= s.role %></p>
-        </div>
-      <% }) %>
+    <h2>Command Staff</h2>
+    <div class="roster-grid">
+      <div class="member-card">
+        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Staff">
+        <h4>David Chen</h4>
+        <p>Head Coach</p>
+      </div>
+      <div class="member-card">
+        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Staff">
+        <h4>Sarah Kim</h4>
+        <p>Team Manager</p>
+      </div>
     </div>
-  </main>
+  </section>
 
   <%- include('partials/footer') %>
 </body>
