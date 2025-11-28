@@ -1,33 +1,31 @@
+<!-- /views/index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pursuit7 Gaming — Command the Arena</title>
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pursuit7 Gaming</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
 </head>
 <body>
   <%- include('partials/header') %>
 
   <section class="hero">
-    <div class="hero-content">
-      <img src="/images/logo.png" alt="Pursuit7 Gaming" class="hero-logo" />
-      <p>Command. Execute. Prevail.</p>
-    </div>
+    <img src="/logo.png" alt="Pursuit7 Gaming">
+    <p>Command. Execute. Prevail.</p>
   </section>
 
-  <section class="features">
-    <div class="card">
+  <section class="features container">
+    <div class="feature-card">
       <h3>Strategic Dominance</h3>
       <p>Every move calculated. Every victory earned.</p>
     </div>
-    <div class="card">
+    <div class="feature-card">
       <h3>Elite Cohesion</h3>
       <p>One team. One vision. Unbreakable unity.</p>
     </div>
-    <div class="card">
+    <div class="feature-card">
       <h3>Enduring Legacy</h3>
       <p>Building a dynasty in competitive esports.</p>
     </div>
