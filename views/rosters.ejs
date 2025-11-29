@@ -14,36 +14,32 @@
   <section class="rosters-section">
     <h2>Squad</h2>
     <div class="roster-grid">
-      <!-- Example player – replace with actual data in real app -->
-      <div class="member-card">
-        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Player">
-        <h4>Alex "Vanta" Reed</h4>
-        <p>IGL</p>
-      </div>
-      <div class="member-card">
-        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Player">
-        <h4>Marcus "Torch" Bell</h4>
-        <p>Fragger</p>
-      </div>
-      <div class="member-card">
-        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Player">
-        <h4>Jordan "Phantom" Lee</h4>
-        <p>Support</p>
-      </div>
+      <% if (players && players.length > 0) { %>
+        <% players.forEach(player => { %>
+          <div class="member-card">
+            <img src="<%= player.imageUrl || 'https://placehold.co/100x100/111/a875ff?text=+' %>" alt="<%= player.name %>">
+            <h4><%= player.name %></h4>
+            <p><%= player.role %></p>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p class="empty-state">No active players.</p>
+      <% } %>
     </div>
 
     <h2>Command Staff</h2>
     <div class="roster-grid">
-      <div class="member-card">
-        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Staff">
-        <h4>David Chen</h4>
-        <p>Head Coach</p>
-      </div>
-      <div class="member-card">
-        <img src="https://placehold.co/100x100/111/a875ff?text=+" alt="Staff">
-        <h4>Sarah Kim</h4>
-        <p>Team Manager</p>
-      </div>
+      <% if (staff && staff.length > 0) { %>
+        <% staff.forEach(staffMember => { %>
+          <div class="member-card">
+            <img src="<%= staffMember.imageUrl || 'https://placehold.co/100x100/111/a875ff?text=+' %>" alt="<%= staffMember.name %>">
+            <h4><%= staffMember.name %></h4>
+            <p><%= staffMember.role %></p>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p class="empty-state">No command staff listed.</p>
+      <% } %>
     </div>
   </section>
 
