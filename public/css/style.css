@@ -93,20 +93,8 @@ footer p {
 /* Home */
 .hero {
   text-align: center;
-  padding: 6rem 0 4rem;
+  padding: 6rem 0 3rem;
   position: relative;
-}
-
-.hero::before {
-  content: "👑";
-  position: absolute;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%) rotate(15deg);
-  font-size: 3rem;
-  opacity: 0.15;
-  pointer-events: none;
-  color: var(--highlight);
 }
 
 .hero img {
@@ -119,23 +107,41 @@ footer p {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   color: var(--highlight);
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero p {
   font-size: 1.125rem;
   opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.discord-cta {
+  background: var(--card-bg);
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  border: 1px solid var(--accent);
+  transition: all 0.3s ease;
+}
+
+.discord-cta:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-2px);
 }
 
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  padding: 4rem 0;
+  padding: 3rem 0 4rem;
 }
 
 .feature-card {
@@ -144,7 +150,6 @@ footer p {
   border-radius: 8px;
   transition: box-shadow 0.3s ease;
   border: 1px solid rgba(245, 215, 110, 0.15);
-  position: relative;
 }
 
 .feature-card:hover {
@@ -371,7 +376,7 @@ footer p {
 /* Login */
 .login-section {
   padding: 6rem 0;
-  max-width: 400px;
+  max-width: 420px;
   margin: 0 auto;
   text-align: center;
 }
@@ -419,16 +424,26 @@ footer p {
 .admin-form {
   max-width: 500px;
   margin: 0 auto 3rem;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(245,215,110,0.1);
 }
 
 .admin-form .form-group {
   margin-bottom: 1rem;
 }
 
+.admin-form label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-weight: 600;
+}
+
 .admin-form input {
   width: 100%;
   padding: 0.5rem;
-  background-color: var(--card-bg);
+  background-color: #1c1c1c;
   border: 1px solid #444;
   color: var(--text);
   border-radius: 4px;
@@ -447,6 +462,7 @@ footer p {
   cursor: pointer;
   font-family: 'Barlow', sans-serif;
   font-weight: 600;
+  flex: 1;
 }
 
 .btn-update {
@@ -467,6 +483,17 @@ footer p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-left: 3px solid var(--highlight);
+}
+
+.list-item input {
+  background: #1c1c1c;
+  border: 1px solid #444;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  flex: 1;
+  margin: 0 0.5rem;
 }
 
 /* Responsive */
@@ -491,7 +518,7 @@ footer p {
   }
 
   .hero {
-    padding: 4rem 0 2.5rem;
+    padding: 4rem 0 2rem;
   }
 
   .hero img {
@@ -499,12 +526,7 @@ footer p {
   }
 
   .hero h1 {
-    font-size: 1.75rem;
-  }
-
-  .hero::before {
-    font-size: 2rem;
-    top: 1.5rem;
+    font-size: 1.875rem;
   }
 }
 
