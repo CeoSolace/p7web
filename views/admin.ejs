@@ -1,60 +1,91 @@
+<!-- /views/admin.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Admin — Pursuit7</title>
-  <link rel="stylesheet" href="/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Command | Pursuit7 Gaming</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
 </head>
 <body>
   <%- include('partials/header') %>
 
-  <main class="admin-page">
-    <h2>Throne Room Dashboard</h2>
+  <section class="admin-section">
+    <h2>Team Command</h2>
 
-    <section>
+    <!-- Add Player -->
+    <form class="admin-form" method="POST" action="/admin/players">
       <h3>Add Player</h3>
-      <form method="POST" action="/admin/players">
-        <input name="name" placeholder="Name" required />
-        <input name="role" placeholder="Role" required />
-        <input name="imageUrl" placeholder="Image URL" />
-        <button type="submit">Crown Player</button>
-      </form>
-    </section>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <input type="text" name="role" required>
+      </div>
+      <div class="form-group">
+        <label>Image URL</label>
+        <input type="url" name="imageUrl" required>
+      </div>
+      <button type="submit" class="btn btn-update">Add Player</button>
+    </form>
 
-    <section>
-      <h3>Players</h3>
-      <% players.forEach(p => { %>
-        <form method="POST" action="/admin/players/<%= p._id %>">
-          <input name="name" value="<%= p.name %>" />
-          <input name="role" value="<%= p.role %>" />
-          <button type="submit">Update</button>
-          <a href="/admin/players/delete/<%= p._id %>" class="delete">Remove</a>
-        </form>
-      <% }) %>
-    </section>
+    <!-- Player List -->
+    <div class="admin-form">
+      <h3>Current Squad</h3>
+      <% players.forEach(player => { %>
+        <div class="list-item">
+          <form method="POST" action="/admin/players/<%= player._id %>/update" style="display:flex;align-items:center;width:100%;">
+            <input type="text" name="name" value="<%= player.name %>" required>
+            <input type="text" name="role" value="<%= player.role %>" required>
+            <input type="url" name="imageUrl" value="<%= player.imageUrl %>" required>
+            <button type="submit" class="btn btn-update">Update</button>
+          </form>
+          <form method="POST" action="/admin/players/<%= player._id %>/delete" style="margin-left:0.5rem;">
+            <button type="submit" class="btn btn-delete">Remove</button>
+          </form>
+        </div>
+      <% }); %>
+    </div>
 
-    <section>
+    <!-- Add Staff -->
+    <form class="admin-form" method="POST" action="/admin/staff">
       <h3>Add Staff</h3>
-      <form method="POST" action="/admin/staff">
-        <input name="name" placeholder="Name" required />
-        <input name="role" placeholder="Role" required />
-        <input name="imageUrl" placeholder="Image URL" />
-        <button type="submit">Appoint</button>
-      </form>
-    </section>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <input type="text" name="role" required>
+      </div>
+      <div class="form-group">
+        <label>Image URL</label>
+        <input type="url" name="imageUrl" required>
+      </div>
+      <button type="submit" class="btn btn-update">Add Staff</button>
+    </form>
 
-    <section>
-      <h3>Staff</h3>
-      <% staff.forEach(s => { %>
-        <form method="POST" action="/admin/staff/<%= s._id %>">
-          <input name="name" value="<%= s.name %>" />
-          <input name="role" value="<%= s.role %>" />
-          <button type="submit">Update</button>
-          <a href="/admin/staff/delete/<%= s._id %>" class="delete">Remove</a>
-        </form>
-      <% }) %>
-    </section>
-  </main>
+    <!-- Staff List -->
+    <div class="admin-form">
+      <h3>Command Staff</h3>
+      <% staff.forEach(staffMember => { %>
+        <div class="list-item">
+          <form method="POST" action="/admin/staff/<%= staffMember._id %>/update" style="display:flex;align-items:center;width:100%;">
+            <input type="text" name="name" value="<%= staffMember.name %>" required>
+            <input type="text" name="role" value="<%= staffMember.role %>" required>
+            <input type="url" name="imageUrl" value="<%= staffMember.imageUrl %>" required>
+            <button type="submit" class="btn btn-update">Update</button>
+          </form>
+          <form method="POST" action="/admin/staff/<%= staffMember._id %>/delete" style="margin-left:0.5rem;">
+            <button type="submit" class="btn btn-delete">Remove</button>
+          </form>
+        </div>
+      <% }); %>
+    </div>
+  </section>
 
   <%- include('partials/footer') %>
 </body>
